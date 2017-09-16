@@ -1,0 +1,11 @@
+package com.harquin.common.%p;
+
+import java.util.List;
+
+import com.harquin.common.IMyBatisMapperMarker;
+
+public interface %oMapper extends IMyBatisMapperMarker{
+	public void insert%o(%o %l);
+	public List<%o> get%os();
+	public void delete%o(%o %l);
+}

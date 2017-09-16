@@ -1,0 +1,7 @@
+	@Bean
+	public I%oDao %lDao() throws Exception
+	{
+		I%oDao %lDao = new %oDao(sqlSessionFactory());
+		
+		 return %lDao;
+	}

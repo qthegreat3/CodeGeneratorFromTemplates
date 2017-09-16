@@ -1,0 +1,5 @@
+#org.springsource.ide.eclipse.gradle.core.preferences.GradleProjectPreferences
+#Fri Sep 15 23:10:37 EDT 2017
+build.family.org.gradle.tooling.model.eclipse.HierarchicalEclipseProject=;../UtilityLibrary;
+org.springsource.ide.eclipse.gradle.linkedresources=
+org.springsource.ide.eclipse.gradle.rootprojectloc=

@@ -1,0 +1,9 @@
+package com.harquin.common.%p;
+
+import java.util.List;
+
+public interface I%oDao {
+	public boolean insert%o(%o %l);
+	public List<%o> get%os();
+	public boolean delete%o(%o %l);
+}

@@ -1,0 +1,70 @@
+package com.harquin.common.%p;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class %oDao implements I%oDao{
+	private static final Logger log = LoggerFactory.getLogger(%oDao.class);
+	
+	private SqlSessionFactory sqlSessionFactory;
+	
+	public %oDao (SqlSessionFactory sqlSessionFactory)
+	{
+		this.sqlSessionFactory = sqlSessionFactory;
+	}
+
+	@Override
+	public boolean insert%o(%o %o) {
+		try (SqlSession session = sqlSessionFactory.openSession();)
+		{
+			%oMapper mapper = session.getMapper(%oMapper.class);
+			mapper.insert%o(%o);
+		}
+		catch (Exception e)
+		{
+			log.error("Exception Found in insert%o function of %oDao", e);
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public List<%o> get%os() {
+		List<%o> %lList = new ArrayList<>();
+		
+		try(SqlSession session = sqlSessionFactory.openSession();)
+		{
+			%oMapper mapper = session.getMapper(%oMapper.class);			
+			%lList = mapper.get%os();
+		}
+		catch (Exception e)
+		{
+			log.error("Exception found in get%os in %oDao", e);
+		}
+
+		return %lList;
+	}
+
+	@Override
+	public boolean delete%o(%o %l) {
+		try(SqlSession session = sqlSessionFactory.openSession();)
+		{
+			%oMapper mapper = session.getMapper(%oMapper.class);
+			mapper.delete%o(%l);
+		}
+		catch (Exception e)
+		{
+			log.error("Exception found in delete%o in %oDao", e);
+			return false;
+		}
+		
+		return true;
+	}
+
+}

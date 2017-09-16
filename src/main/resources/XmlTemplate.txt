@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.harquin.common.%p.%oMapper">
+	<resultMap type="com.harquin.common.%p.%o" id="result">
+		<result property="name" column="name"/>
+	</resultMap>
+	
+	<select id="get%os" resultMap="result">
+		select name from %t;
+	</select>
+	
+	<insert id="insert%o" parameterType="com.harquin.common.%p.%o">
+		insert into %t (name) value (#{name});
+	</insert>
+	
+	<delete id="delete%o" parameterType="com.harquin.common.%p.%o">
+		delete from %t where name = #{name};
+	</delete>
+</mapper>

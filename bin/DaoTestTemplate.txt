@@ -1,0 +1,47 @@
+package com.harquin.common.%p;
+
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.harquin.config.TestAppConfig;
+
+@ContextConfiguration(classes = {TestAppConfig.class})
+@RunWith(SpringJUnit4ClassRunner.class)
+public class %oDaoTest {
+	@Autowired
+	I%oDao %lDao;
+	
+	@Test
+	public void test()
+	{
+		%o %l = new %o("test%o");
+		
+		%lDao.insert%o(%l);
+		
+		List<%o> %lList = %lDao.get%os();
+		
+		assertTrue(%l.getName().equalsIgnoreCase(%lList.get(0).getName()));
+		
+		%lDao.delete%o(%l);
+		
+		assertTrue(%lDao.get%os().isEmpty());
+	}
+	
+	@Test
+	public void testExceptions()
+	{
+		%o %l = new %o("test%o");
+		%lDao.insert%o(%l);
+		%lDao.insert%o(%l);
+		%lDao.delete%o(%l);
+		%lDao.delete%o(%l);
+	}
+		
+}
